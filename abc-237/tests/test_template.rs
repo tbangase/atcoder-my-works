@@ -1,0 +1,48 @@
+use cli_test_dir::*;
+use std::time::{Duration, Instant};
+
+const BIN: &'static str = "./main";
+
+#[test]
+fn testcase_1() {
+    let n = 500000;
+    let mut a = vec![];
+
+    for i in 0..500000 {
+        a.push('L');
+    }
+
+    test_function(n, a, Some(true));
+}
+
+fn test_function(n: usize, a: Vec<char>, success: Option<bool>) {
+    let testdir = TestDir::new(BIN, "");
+
+    // Build input
+    let mut input = format!("{}\n", n);
+    for val in a {
+        input.push_str(&format!("{}", val));
+    }
+    input.push_str("\n");
+
+    // Start program
+    let start = Instant::now();
+    let output = testdir
+        .cmd()
+        .output_with_stdin(input)
+        .tee_output()
+        .expect_success();
+    let duration = start.elapsed();
+
+    // Processing outputs
+    // let outs = output.stdout_str().split(" ").collect::<Vec<&str>>();
+    // let result: usize = outs[0].replace("\n", "").parse().unwrap();
+    let out = output.stdout_str();
+    println!("{}", out);
+
+    // if let Some(val) = success {
+    //     assert_eq!(result, if val { 0 } else { 1 });
+    // }
+    assert!(duration <= Duration::new(2, 0));
+    assert!(output.stderr_str().is_empty());
+}

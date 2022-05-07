@@ -1,4 +1,4 @@
-use proconio::{input, fastout, marker::*};
+use proconio::{input, fastout};
 
 use std::time::Instant;
 
@@ -6,12 +6,17 @@ use std::time::Instant;
 fn main() {
     input! {
         n: usize,
-        s: [(u64, u64, u64); n],
+        a_list: [usize; n],
     }
 
     let start = Instant::now();
 
-    println!("{:?}", s);
+    let mut count = 0;
+
+    count += 1;
+
+    println!("{:?}", a_list);
+    println!("{}", count);
     let duration = start.elapsed();
     println!("Duration: {:?}", duration);
 }
