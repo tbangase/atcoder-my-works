@@ -46,6 +46,18 @@ fn calc_k(p: u64, q: u64) -> u64 {
     p * q.pow(3) 
 }
 
+fn prime_list(limit: u64) -> Vec<u64> {
+    let mut prime_list = vec![2];
+    let mut p = 3;
+    while (prime_list.len() as u64) < limit {
+        if is_prime(p) {
+            prime_list.push(p);
+        }
+        p += 2;
+    }
+    prime_list
+}
+
 fn is_prime(n: u64) -> bool {
     if n < 4 {
       n > 1
