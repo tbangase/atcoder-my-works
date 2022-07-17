@@ -27,7 +27,6 @@ use proconio::input;
 // TODO: Remove before submit.
 use std::time::Instant;
 
-#[fastout]
 fn main() {
     input! {
         n: usize,
