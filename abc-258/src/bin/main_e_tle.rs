@@ -63,7 +63,6 @@ fn main() {
 
         if k <= init_len {
             let i = (k - 1) as usize;
-            // println!("k: {}", k);
             println!("{}", box_init.get(i).unwrap_or(&0));
         } else {
             let k = k - 1;
@@ -73,7 +72,6 @@ fn main() {
                 k
             };
 
-            // println!("k: {}", k);
             println!("{}", box_iter.get(k as usize).unwrap_or(&0));
         }
     }
