@@ -1,0 +1,15 @@
+---
+type: Batch
+timelimit: 4s
+match: Lines
+
+cases:
+  - name: my_sample1
+    in: |
+      7
+      1 2 4 5 5 5 6
+    out: |
+      6
+
+extend:
+  - type: SystemTestCases

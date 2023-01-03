@@ -1,0 +1,74 @@
+---
+type: Batch
+timelimit: 2s
+match: Lines
+
+cases:
+  - name: sample1
+    in: |
+      5 5
+      ooooo
+      oooxx
+      xxooo
+      oxoxo
+      xxxxx
+    out: |
+      5
+  - name: sample2
+    in: |
+      3 2
+      ox
+      xo
+      xx
+    out: |
+      1
+  - name: sample3
+    in: |
+      2 4
+      xxxx
+      oxox
+    out: |
+      0
+  - name: my_sample1
+    in: |
+      5 5
+      ooooo
+      ooooo
+      ooooo
+      ooooo
+      ooooo
+    out: |
+      10
+  - name: my_sample2
+    in: |
+      5 5
+      oxxxx
+      xoxxx
+      xxoxx
+      xxxox
+      xxxxo
+    out: |
+      0
+  - name: my_sample3
+    in: |
+      5 5
+      ooxox
+      xoxxx
+      oxoxo
+      xoxox
+      xxoxo
+    out: |
+      3
+  - name: my_boundary1
+    in: |
+      2 1
+      o
+      x
+    out: |
+      1
+
+extend:
+  - type: Text
+    path: "./b"
+    in: /in/*.txt
+    out: /out/*.txt
