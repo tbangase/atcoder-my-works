@@ -1,0 +1,12 @@
+[tasks.clean-all]
+description = "`cargo clean` in all workspaces"
+script = ['''
+#!/bin/bash
+
+for f in `find . -maxdepth 3 -and -name Cargo.toml`
+do 
+ echo $f
+ cargo clean --manifest-path $f || exit 1
+done
+''']
+workspace = false

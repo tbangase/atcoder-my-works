@@ -59,6 +59,16 @@ cases:
       xxoxo
     out: |
       3
+  - name: my_sample3
+    in: |
+      5 5
+      ooxox
+      xoxxx
+      xxoxo
+      xoxox
+      xxoxo
+    out: |
+      1
   - name: my_boundary1
     in: |
       2 1
