@@ -1,20 +1,27 @@
-use proconio::{input, fastout};
-
-// TODO: Remove before submit.
-use std::time::Instant;
+use proconio::{fastout, input};
 
 #[fastout]
 fn main() {
     input! {
-        n: usize,
-        s: [String; n],
+        s: [String; 10],
     }
 
-    // TODO: Remove before submit.
-    let start = Instant::now();
+    let mut a = 10;
+    let mut b = 0;
+    let mut c = 10;
+    let mut d = 0;
 
-    println!("{:?}", s);
+    for (i, s_i) in s.iter().enumerate() {
+        s_i.chars().enumerate().for_each(|(j, s_ij)| {
+            if s_ij == '#' {
+                a = a.min(i);
+                b = b.max(i);
+                c = c.min(j);
+                d = d.max(j);
+            }
+        });
+    }
 
-    // TODO: Remove before submit.
-    println!("Duration: {:?}", start.elapsed());
+    println!("{} {}", a + 1, b + 1);
+    println!("{} {}", c + 1, d + 1);
 }

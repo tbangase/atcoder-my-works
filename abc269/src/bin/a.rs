@@ -1,20 +1,11 @@
-use proconio::{input, fastout};
-
-// TODO: Remove before submit.
-use std::time::Instant;
+use proconio::{fastout, input};
 
 #[fastout]
 fn main() {
     input! {
-        n: usize,
-        s: [String; n],
+        (a, b, c, d): (i32, i32, i32, i32),
     }
 
-    // TODO: Remove before submit.
-    let start = Instant::now();
-
-    println!("{:?}", s);
-
-    // TODO: Remove before submit.
-    println!("Duration: {:?}", start.elapsed());
+    println!("{}", (a + b) * (c - d));
+    println!("Takahashi");
 }
